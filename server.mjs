@@ -6,6 +6,8 @@ import commentRoutes from './routes/commentRoutes.mjs'
 //setups
 const app = express();
 const PORT = 3000 || 3001;
+app.set('view engine', 'ejs');
+app.set('views', './views');
 app.use(express.json());
 
 //middleware 
