@@ -1,9 +1,7 @@
 import express from 'express';
+import getAllRecipes from '../controllers/recipeControllers.mjs'; 
 const router = express.Router();
-import { recipes } from '../data/recipes.mjs';
 
-router.get('/', (req, res)=>{
-    res.json(recipes);
-})
+router.get('/', getAllRecipes);
 
 export default router;
