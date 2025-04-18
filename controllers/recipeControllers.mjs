@@ -8,8 +8,8 @@ export function getOneRecipeFromUser(req, res)
 {
     let userId = req.params.id;
     console.log(userId);
-    const recipe = recipes.find(element => element.userId === userId);
-    if(recipe)
+    const recipe = recipes.filter(element => element.userId === userId);
+    if(recipe.length  > 0)
     {
         res.json(recipe);
     }
