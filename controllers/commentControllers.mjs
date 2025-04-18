@@ -1,9 +1,8 @@
 import { comments } from '../data/comments.mjs';
 
-function getAllComments(req, res, next)
+function getAllComments(req, res)
 {
-   res.send(comments);
-   next();
+   res.json(comments);
 }
 
 export default getAllComments;
