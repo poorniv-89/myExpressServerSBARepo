@@ -2,6 +2,7 @@
 import express from 'express';
 import recipeRoutes from './routes/recipeRoutes.mjs';
 import commentRoutes from './routes/commentRoutes.mjs'
+import userRoutes from './routes/userRoutes.mjs';
 
 //setups
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 //middleware 
 app.use('/recipes', recipeRoutes);
 app.use('/comments', commentRoutes);
+app.use('/users', userRoutes);
 
 //test route for server
 app.get('/', (req, res)=>{
