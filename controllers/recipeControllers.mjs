@@ -1,4 +1,3 @@
-
 import { recipes } from '../data/recipes.mjs';
 export function getAllRecipes(req, res)
 {
@@ -17,4 +16,12 @@ export function getOneRecipeFromUser(req, res)
     {
         res.status(404).send('Recipe not found');
     }
+}
+
+export function postNewRecipe(req, res)
+{
+    const newRecipeDetails = req.body;
+    newRecipeDetails.id = recipes.length+1;
+    recipes.push(newRecipeDetails);
+    res.status(201).json(newRecipeDetails);
 }
