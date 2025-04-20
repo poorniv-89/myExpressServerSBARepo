@@ -1,5 +1,5 @@
 import { recipes } from '../data/recipes.mjs';
-export function getAllRecipes(req, res) {
+export function getAllRecipes(req, res, next) {
     try {
         res.render('recipes', { recipes });
     } catch (err) {
