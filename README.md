@@ -4,10 +4,10 @@ This API is built in relation to the previous project, which renders recipes fro
 
 **File Structure**
 
-**/controllers:**   Contains the business logic for recipes, comments, and users.
-**/data:**   Stores the data for recipes, comments, and users.
-**/middleware:**   Includes custom middleware for logging, error handling, and validating ingredient for post request.
-**/routes:**   Defines the routes for the recipes, comments, and users.
+**/controllers:**   Contains the business logic for recipes, comments and users.
+**/data:**   Stores the data for recipes, comments and users.
+**/middleware:**   Includes custom middleware for logging, error handling and validating ingredient for post request.
+**/routes:**   Defines the routes for the recipes, comments and users.
 **/views:**   Holds the EJS templates for rendering recipes views.
 **/public:**   Holds the static CSS file.
 
