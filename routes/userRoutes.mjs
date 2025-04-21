@@ -1,8 +1,13 @@
+// Import express and create a new router instance
 import express from 'express';
-import {getAllUsers, deleteUserByUserId} from '../controllers/userControllers.mjs'
+import { getAllUsers, deleteUserByUserId } from '../controllers/userControllers.mjs';
+
 const router = express.Router();
 
-router.get('/', getAllUsers);
-router.delete('/', deleteUserByUserId);
+// Route to get all users
+router.get('/', getAllUsers); 
 
-export default router;
+// Route to delete a user by user ID using query paramter
+router.delete('/', deleteUserByUserId);  
+
+export default router; 

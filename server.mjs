@@ -1,4 +1,4 @@
-//importing express
+//import
 import express from 'express';
 import recipeRoutes from './routes/recipeRoutes.mjs';
 import commentRoutes from './routes/commentRoutes.mjs'

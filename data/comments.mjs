@@ -1,3 +1,4 @@
+//sample comments data for testing
 export const comments = [
     {
       id: 1,

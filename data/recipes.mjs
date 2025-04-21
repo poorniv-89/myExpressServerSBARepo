@@ -1,3 +1,4 @@
+//sample recipes data for testing
 export const recipes = [
   {
     id: 1,
