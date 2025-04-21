@@ -26,14 +26,20 @@ export function getOneRecipeFromUser(req, res, next) {
 }
 
 export function postNewRecipe(req, res, next) {
-    try{
     const newRecipeDetails = req.body;
-    newRecipeDetails.id = recipes.length + 1;
-    recipes.push(newRecipeDetails);
-    res.status(201).json(newRecipeDetails);
+    try {
+        if (newRecipeDetails) {
+            newRecipeDetails.id = recipes.length + 1;
+            recipes.push(newRecipeDetails);
+            res.status(201).json(newRecipeDetails);
+        }
+        else {
+            const err = new Error('No details provided in the body!');
+            err.status = 404;
+            next(err);
+        }
     }
-    catch (err)
-    {
+    catch (err) {
         next(err);
     }
 }

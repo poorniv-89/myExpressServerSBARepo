@@ -23,16 +23,17 @@ app.use('/comments', commentRoutes);
 app.use('/users', userRoutes);
 
 // Adding some HATEOAS links for recipe route .
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
+    try{
     res.json({
         links: [
             {
                 href: '/recipes',
-                rel: 'recipes',
-                method: 'GET',
+                rel: 'get-all-recipes',
+                method: 'GET'
             },
             {
-                href: '/recipes/',
+                href: '/recipes',
                 rel: 'create-new-recipe',
                 method: 'POST',
                 body: {
@@ -43,26 +44,49 @@ app.get('/', (req, res) => {
                 }
             },
             {
-                href: '/recipes/{id}',
+                href: '/recipes/{userId}',
                 rel: 'get-recipe-by-id',
                 method: 'GET'
+            },
+            {
+                href: '/users',
+                rel: 'get-all-users',
+                method: 'GET'
+            },
+            {
+                href: '/users?id={userId}',
+                rel: 'delete-user-by-id',
+                method: 'DELETE'
+            },
+            {
+                href: '/comments',
+                rel: 'get-all-comments',
+                method: 'GET'
+            },
+            {
+                href: '/comments/{userId}',
+                rel: 'get-comments-by-userId',
+                method: 'GET'
+            },
+            {
+                href: '/comments/{userId}',
+                rel: 'update-comment-by-userId',
+                method: 'PATCH',
+                body: {
+                    comment: 'string'
+                }
             }
         ]
     });
+}
+catch (err)
+{
+    next(err);
+}
 });
-
 
 //error handling middleware
 app.use(errorHandler);
-
-app.get('/recipes', (req, res) => {
-    res.render('recipes');
-});
-
-//test route for server
-app.get('/', (req, res) => {
-    res.send('Server is sending a response');
-})
 
 //listener
 app.listen(PORT, () => {
