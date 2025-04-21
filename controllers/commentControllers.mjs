@@ -1,6 +1,6 @@
 import { comments } from '../data/comments.mjs';
 import { users } from '../data/users.mjs';
-export function getAllComments(req, res) {
+export function getAllComments(req, res, next) {
    try {
       res.json(comments);
    } catch (err) {
@@ -27,13 +27,15 @@ export function getUserComments(req, res, next) {
 export function updateComments(req, res, next) {
    try {
       const newComment = req.body.comment;
-      const userId = req.params.id;
+      const userId = req.params.id?.trim();
+      const recipeName = req.params.recipename?.trim();
   
       if (!newComment) {
-        return res.status(400).send('New comment is required.');
+        const err = new Error("New comment is required.");
+        err.status = 400;
+        return next(err);
       }
-  
-      const userOldComment = comments.find(element => element.userId === userId);
+      const userOldComment = comments.find(element => element.userId === userId && element.recipename.toLowerCase() === recipeName.toLowerCase());
   
       if (!userOldComment) {
         const error = new Error("Comments not found for the user");
@@ -45,8 +47,7 @@ export function updateComments(req, res, next) {
       userOldComment.comment = newComment;
   
       return res.status(200).json({
-        message: `Comment with id ${userId} updated successfully.`,
-        updatedComment: newComment
+        message: `Comment with id ${userId} on '${recipeName}' updated successfully.`
       });
   
     } catch (err) {

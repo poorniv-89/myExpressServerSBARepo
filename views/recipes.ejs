@@ -1,19 +1,25 @@
 <!-- view template to  render a webpage that displays a list of recipes in a dropdown menu. 
 The recipes are dynamically populated. -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel = "stylesheet" href = "/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Recipe List</title>
 </head>
 <body>
   <h1>Recipe List</h1>
-  <form>
+  
+  <form action="/someEndpoint" method="POST">
     <label for="recipe-select">Choose a recipe:</label>
     <select id="recipe-select" name="recipe">
+      <option value="" disabled selected>Select a recipe</option> 
       <% for (let i = 0; i < recipes.length; i++) { %>
         <option value="<%= recipes[i].id %>"><%= recipes[i].recipename %></option>
       <% } %>
     </select>
+    <button type="submit">Submit</button> 
   </form>
 
 </body>

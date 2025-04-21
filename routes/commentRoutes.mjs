@@ -7,6 +7,6 @@ router
 .get('/', getAllComments)
 ;
 router.get('/:id', getUserComments)
-.patch('/:id', updateComments);
+.patch('/:id/:recipename', updateComments);
 
 export default router;

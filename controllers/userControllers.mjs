@@ -29,7 +29,7 @@ export function deleteUserByUserId(req, res, next) {
         }
         else {
             const err = new Error('User ID is required');
-            err.status = 404;
+            err.status = 400;
             return next(err);
         }
     }

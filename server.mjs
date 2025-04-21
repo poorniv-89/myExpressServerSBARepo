@@ -69,7 +69,7 @@ app.get('/', (req, res, next) => {
                 method: 'GET'
             },
             {
-                href: '/comments/{userId}',
+                href: '/comments/{userId}/{recipename}',
                 rel: 'update-comment-by-userId',
                 method: 'PATCH',
                 body: {
