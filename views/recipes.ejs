@@ -14,7 +14,7 @@ The recipes are dynamically populated. -->
   <form action="/someEndpoint" method="POST">
     <label for="recipe-select">Choose a recipe:</label>
     <select id="recipe-select" name="recipe">
-      <option value="" disabled selected>Select a recipe</option> 
+      <option value="" selected>Select a recipe</option> 
       <% for (let i = 0; i < recipes.length; i++) { %>
         <option value="<%= recipes[i].id %>"><%= recipes[i].recipename %></option>
       <% } %>
