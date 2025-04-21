@@ -1,4 +1,4 @@
-This is a simple API that helps users manage recipes, users, and comments. 
+This is a simple API that helps users manage recipes, users and comments. 
 The app supports adding, reading, and updating recipes, as well as managing comments and users.
 This API is built in relation to the previous project, which renders recipes from a 3rd-party recipe API.
 
