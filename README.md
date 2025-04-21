@@ -40,7 +40,7 @@ get-all-comments:   GET http://localhost:3000/comments
 
 get-comments-by-userId: GET http://localhost:3000/comments/002
 
-update-comment-by-userId-and-recipename:   http://localhost:3000/comments/002/Veg Biryani
+update-comment-by-userId-and-recipename:  PATCH http://localhost:3000/comments/002/Veg Biryani
 body {
   "comment": "I tried it last night, it was amazing!"
 }
